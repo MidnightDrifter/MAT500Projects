@@ -633,5 +633,10 @@ namespace mat_290_framework
         {
             return new Point2D(0, 0);
         }
+
+        private void MAT290_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
