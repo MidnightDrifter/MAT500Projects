@@ -633,5 +633,77 @@ namespace mat_290_framework
         {
             return new Point2D(0, 0);
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void project2ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void project7ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        private void Project1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Project2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Project3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Project4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Project5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Project6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Project7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Project8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public float NLIMethod(List<float> coef, float tVal, int upper, int lower)
+        {
+            if(upper ==0)
+            {
+                return coef[lower];
+            }
+            else
+            {
+                return ((1 - tVal) * NLIMethod(coef, tVal, upper - 1, lower) + tVal * NLIMethod(coef, tVal, upper - 1, Math.Min(coef.Count, lower + 1)));
+            }
+        }
+
+
     }
 }
