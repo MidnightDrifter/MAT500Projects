@@ -704,6 +704,29 @@ namespace mat_290_framework
             }
         }
 
+        public long nCr(int upper, int lower)
+        {
+            if(lower==0 || upper==lower)
+            { return 1; }
+           else if(upper==lower-1 || lower ==1)
+            {
+                return upper;
+            }
+
+            else
+            {
+                return nCr(upper - 1, lower - 1) + nCr(upper - 1, lower);
+            }
+        }
+
+        public double BBform(List<float> coef, float tVal, int upper, int lower)
+        {double o= 0;
+            for(int i=0;i<coef.Count;i++)
+            {
+                o += (coef[i] * nCr(upper, lower) * Math.Pow((1 - tVal), upper - lower) * Math.Pow(tVal, lower));
+            }
+            return o;
+        }
 
     }
 }
