@@ -14,7 +14,7 @@ namespace mat_290_framework
         {
             InitializeComponent();
 
-            pts_ = new List<Point2D>();
+            pts_ = new List<Point2D>();   //a_sub_i coef
             tVal_ = 0.5F;
             degree_ = 0;
             knot_ = new List<float>();
@@ -262,7 +262,7 @@ namespace mat_290_framework
 
             Refresh();
         }
-
+        
         private void Menu_Bern_Click(object sender, EventArgs e)
         {
             Menu_DeCast.Checked = false;
@@ -493,7 +493,7 @@ namespace mat_290_framework
             {
                 Point2D current_left;
                 Point2D current_right = new Point2D(Bernstein(0));
-
+                
                 for (float t = alpha; t < 1; t += alpha)
                 {
                     current_left = current_right;
@@ -604,12 +604,33 @@ namespace mat_290_framework
 
         private Point2D DeCastlejau(float t)
         {
-            return new Point2D(0, 0);
-        }
+            //return new Point2D(t,NLIMethod())
+            //return new Point2D(0, 0);
 
-        private Point2D Bernstein(float t)
+            /*
+
+
+        public double NLIMethod(List<float> coef, float tVal, int upper, int lower)
         {
-            return new Point2D(0, 0);
+            if (upper == 0)
+            {
+                return coef[lower];
+            }
+            else
+            {
+                return ((1 - tVal) * NLIMethod(coef, tVal, upper - 1, lower) + tVal * NLIMethod(coef, tVal, upper - 1, Math.Min(coef.Count, lower + 1)));
+            }
+        }
+        */
+
+            return  NLIMethod(pts_, t, degree_, 0);
+
+    }
+        
+    private Point2D Bernstein(float t)
+        {
+            // return new Point2D(t, BBform(pts_,t,degree_,0));
+          return  BBform(pts_, t, degree_, 0);
         }
 
         private const float MAX_DIST = 6.0F;
@@ -692,7 +713,7 @@ namespace mat_290_framework
 
         }
 
-        public float NLIMethod(List<float> coef, float tVal, int upper, int lower)
+        private Point2D NLIMethod(List<Point2D> coef, float tValue, int upper, int lower)
         {
             if(upper ==0)
             {
@@ -700,7 +721,7 @@ namespace mat_290_framework
             }
             else
             {
-                return ((1 - tVal) * NLIMethod(coef, tVal, upper - 1, lower) + tVal * NLIMethod(coef, tVal, upper - 1, Math.Min(coef.Count, lower + 1)));
+                return ((1 - tValue) * NLIMethod(coef, tValue, upper - 1, lower) + tValue * NLIMethod(coef, tValue, upper - 1, Math.Min(coef.Count, lower + 1)));
             }
         }
 
@@ -719,14 +740,25 @@ namespace mat_290_framework
             }
         }
 
-        public double BBform(List<float> coef, float tVal, int upper, int lower)
-        {double o= 0;
+        private Point2D BBform(List<Point2D> coef, float tValue, int upper, int lower)
+        {Point2D o = new Point2D(0,0);
             for(int i=0;i<coef.Count;i++)
             {
-                o += (coef[i] * nCr(upper, lower) * Math.Pow((1 - tVal), upper - lower) * Math.Pow(tVal, lower));
+                o.x += (coef[i].x * nCr(upper, lower) * (float)(Math.Pow((1 - tValue), upper - lower) * Math.Pow(tValue, lower)));
+                o.y += (coef[i].y * nCr(upper, lower) * (float)(Math.Pow((1 - tValue), upper - lower) * Math.Pow(tValue, lower)));
+
             }
             return o;
         }
 
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

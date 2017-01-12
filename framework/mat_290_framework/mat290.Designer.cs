@@ -87,14 +87,14 @@ namespace mat_290_framework
             // Menu_Clear
             // 
             this.Menu_Clear.Name = "Menu_Clear";
-            this.Menu_Clear.Size = new System.Drawing.Size(101, 22);
+            this.Menu_Clear.Size = new System.Drawing.Size(152, 22);
             this.Menu_Clear.Text = "&Clear";
             this.Menu_Clear.Click += new System.EventHandler(this.Menu_Clear_Click);
             // 
             // Menu_Exit
             // 
             this.Menu_Exit.Name = "Menu_Exit";
-            this.Menu_Exit.Size = new System.Drawing.Size(101, 22);
+            this.Menu_Exit.Size = new System.Drawing.Size(152, 22);
             this.Menu_Exit.Text = "E&xit";
             this.Menu_Exit.Click += new System.EventHandler(this.Menu_Exit_Click);
             // 
@@ -114,7 +114,7 @@ namespace mat_290_framework
             this.Menu_Polyline.CheckOnClick = true;
             this.Menu_Polyline.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Menu_Polyline.Name = "Menu_Polyline";
-            this.Menu_Polyline.Size = new System.Drawing.Size(116, 22);
+            this.Menu_Polyline.Size = new System.Drawing.Size(152, 22);
             this.Menu_Polyline.Text = "&Polyline";
             this.Menu_Polyline.Click += new System.EventHandler(this.Menu_Polyline_Click);
             // 
@@ -124,7 +124,7 @@ namespace mat_290_framework
             this.Menu_Points.CheckOnClick = true;
             this.Menu_Points.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Menu_Points.Name = "Menu_Points";
-            this.Menu_Points.Size = new System.Drawing.Size(116, 22);
+            this.Menu_Points.Size = new System.Drawing.Size(152, 22);
             this.Menu_Points.Text = "P&oints";
             this.Menu_Points.Click += new System.EventHandler(this.Menu_Points_Click);
             // 
@@ -134,7 +134,7 @@ namespace mat_290_framework
             this.Menu_Shell.CheckOnClick = true;
             this.Menu_Shell.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Menu_Shell.Name = "Menu_Shell";
-            this.Menu_Shell.Size = new System.Drawing.Size(116, 22);
+            this.Menu_Shell.Size = new System.Drawing.Size(152, 22);
             this.Menu_Shell.Text = "&Shell";
             this.Menu_Shell.Click += new System.EventHandler(this.Menu_Shell_Click);
             // 
@@ -153,21 +153,21 @@ namespace mat_290_framework
             // Menu_DeCast
             // 
             this.Menu_DeCast.Name = "Menu_DeCast";
-            this.Menu_DeCast.Size = new System.Drawing.Size(136, 22);
+            this.Menu_DeCast.Size = new System.Drawing.Size(152, 22);
             this.Menu_DeCast.Text = "&DeCastlejau";
             this.Menu_DeCast.Click += new System.EventHandler(this.Menu_DeCast_Click);
             // 
             // Menu_Bern
             // 
             this.Menu_Bern.Name = "Menu_Bern";
-            this.Menu_Bern.Size = new System.Drawing.Size(136, 22);
+            this.Menu_Bern.Size = new System.Drawing.Size(152, 22);
             this.Menu_Bern.Text = "&Bernstein";
             this.Menu_Bern.Click += new System.EventHandler(this.Menu_Bern_Click);
             // 
             // Menu_Midpoint
             // 
             this.Menu_Midpoint.Name = "Menu_Midpoint";
-            this.Menu_Midpoint.Size = new System.Drawing.Size(136, 22);
+            this.Menu_Midpoint.Size = new System.Drawing.Size(152, 22);
             this.Menu_Midpoint.Text = "&Midpoint";
             this.Menu_Midpoint.Click += new System.EventHandler(this.Menu_Midpoint_Click);
             // 
@@ -177,7 +177,7 @@ namespace mat_290_framework
             this.Menu_Inter_Poly,
             this.Menu_Inter_Splines});
             this.Menu_Inter.Name = "Menu_Inter";
-            this.Menu_Inter.Size = new System.Drawing.Size(136, 22);
+            this.Menu_Inter.Size = new System.Drawing.Size(152, 22);
             this.Menu_Inter.Text = "&Interpolate";
             // 
             // Menu_Inter_Poly
@@ -197,7 +197,7 @@ namespace mat_290_framework
             // Menu_DeBoor
             // 
             this.Menu_DeBoor.Name = "Menu_DeBoor";
-            this.Menu_DeBoor.Size = new System.Drawing.Size(136, 22);
+            this.Menu_DeBoor.Size = new System.Drawing.Size(152, 22);
             this.Menu_DeBoor.Text = "DeBoo&r";
             this.Menu_DeBoor.Click += new System.EventHandler(this.Menu_DeBoor_Click);
             // 
