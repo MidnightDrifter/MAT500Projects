@@ -58,8 +58,11 @@ namespace mat_290_framework
             this.Lbl_knot = new System.Windows.Forms.Label();
             this.NUD_degree = new System.Windows.Forms.NumericUpDown();
             this.CB_cont = new System.Windows.Forms.CheckBox();
+            this.Project1DegreeBox = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -87,14 +90,14 @@ namespace mat_290_framework
             // Menu_Clear
             // 
             this.Menu_Clear.Name = "Menu_Clear";
-            this.Menu_Clear.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Clear.Size = new System.Drawing.Size(101, 22);
             this.Menu_Clear.Text = "&Clear";
             this.Menu_Clear.Click += new System.EventHandler(this.Menu_Clear_Click);
             // 
             // Menu_Exit
             // 
             this.Menu_Exit.Name = "Menu_Exit";
-            this.Menu_Exit.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Exit.Size = new System.Drawing.Size(101, 22);
             this.Menu_Exit.Text = "E&xit";
             this.Menu_Exit.Click += new System.EventHandler(this.Menu_Exit_Click);
             // 
@@ -114,7 +117,7 @@ namespace mat_290_framework
             this.Menu_Polyline.CheckOnClick = true;
             this.Menu_Polyline.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Menu_Polyline.Name = "Menu_Polyline";
-            this.Menu_Polyline.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Polyline.Size = new System.Drawing.Size(116, 22);
             this.Menu_Polyline.Text = "&Polyline";
             this.Menu_Polyline.Click += new System.EventHandler(this.Menu_Polyline_Click);
             // 
@@ -124,7 +127,7 @@ namespace mat_290_framework
             this.Menu_Points.CheckOnClick = true;
             this.Menu_Points.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Menu_Points.Name = "Menu_Points";
-            this.Menu_Points.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Points.Size = new System.Drawing.Size(116, 22);
             this.Menu_Points.Text = "P&oints";
             this.Menu_Points.Click += new System.EventHandler(this.Menu_Points_Click);
             // 
@@ -134,7 +137,7 @@ namespace mat_290_framework
             this.Menu_Shell.CheckOnClick = true;
             this.Menu_Shell.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Menu_Shell.Name = "Menu_Shell";
-            this.Menu_Shell.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Shell.Size = new System.Drawing.Size(116, 22);
             this.Menu_Shell.Text = "&Shell";
             this.Menu_Shell.Click += new System.EventHandler(this.Menu_Shell_Click);
             // 
@@ -153,21 +156,21 @@ namespace mat_290_framework
             // Menu_DeCast
             // 
             this.Menu_DeCast.Name = "Menu_DeCast";
-            this.Menu_DeCast.Size = new System.Drawing.Size(152, 22);
+            this.Menu_DeCast.Size = new System.Drawing.Size(136, 22);
             this.Menu_DeCast.Text = "&DeCastlejau";
             this.Menu_DeCast.Click += new System.EventHandler(this.Menu_DeCast_Click);
             // 
             // Menu_Bern
             // 
             this.Menu_Bern.Name = "Menu_Bern";
-            this.Menu_Bern.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Bern.Size = new System.Drawing.Size(136, 22);
             this.Menu_Bern.Text = "&Bernstein";
             this.Menu_Bern.Click += new System.EventHandler(this.Menu_Bern_Click);
             // 
             // Menu_Midpoint
             // 
             this.Menu_Midpoint.Name = "Menu_Midpoint";
-            this.Menu_Midpoint.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Midpoint.Size = new System.Drawing.Size(136, 22);
             this.Menu_Midpoint.Text = "&Midpoint";
             this.Menu_Midpoint.Click += new System.EventHandler(this.Menu_Midpoint_Click);
             // 
@@ -177,7 +180,7 @@ namespace mat_290_framework
             this.Menu_Inter_Poly,
             this.Menu_Inter_Splines});
             this.Menu_Inter.Name = "Menu_Inter";
-            this.Menu_Inter.Size = new System.Drawing.Size(152, 22);
+            this.Menu_Inter.Size = new System.Drawing.Size(136, 22);
             this.Menu_Inter.Text = "&Interpolate";
             // 
             // Menu_Inter_Poly
@@ -197,7 +200,7 @@ namespace mat_290_framework
             // Menu_DeBoor
             // 
             this.Menu_DeBoor.Name = "Menu_DeBoor";
-            this.Menu_DeBoor.Size = new System.Drawing.Size(152, 22);
+            this.Menu_DeBoor.Size = new System.Drawing.Size(136, 22);
             this.Menu_DeBoor.Text = "DeBoo&r";
             this.Menu_DeBoor.Click += new System.EventHandler(this.Menu_DeBoor_Click);
             // 
@@ -219,16 +222,18 @@ namespace mat_290_framework
             // 
             // Project1
             // 
+            this.Project1.Checked = true;
             this.Project1.CheckOnClick = true;
+            this.Project1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Project1.Name = "Project1";
-            this.Project1.Size = new System.Drawing.Size(152, 22);
+            this.Project1.Size = new System.Drawing.Size(120, 22);
             this.Project1.Text = "Project 1";
             // 
             // Project2
             // 
             this.Project2.CheckOnClick = true;
             this.Project2.Name = "Project2";
-            this.Project2.Size = new System.Drawing.Size(152, 22);
+            this.Project2.Size = new System.Drawing.Size(120, 22);
             this.Project2.Text = "Project 2";
             this.Project2.Click += new System.EventHandler(this.Project2_Click);
             // 
@@ -236,7 +241,7 @@ namespace mat_290_framework
             // 
             this.Project3.CheckOnClick = true;
             this.Project3.Name = "Project3";
-            this.Project3.Size = new System.Drawing.Size(152, 22);
+            this.Project3.Size = new System.Drawing.Size(120, 22);
             this.Project3.Text = "Project 3";
             this.Project3.Click += new System.EventHandler(this.Project3_Click);
             // 
@@ -244,7 +249,7 @@ namespace mat_290_framework
             // 
             this.Project4.CheckOnClick = true;
             this.Project4.Name = "Project4";
-            this.Project4.Size = new System.Drawing.Size(152, 22);
+            this.Project4.Size = new System.Drawing.Size(120, 22);
             this.Project4.Text = "Project 4";
             this.Project4.Click += new System.EventHandler(this.Project4_Click);
             // 
@@ -252,7 +257,7 @@ namespace mat_290_framework
             // 
             this.Project5.CheckOnClick = true;
             this.Project5.Name = "Project5";
-            this.Project5.Size = new System.Drawing.Size(152, 22);
+            this.Project5.Size = new System.Drawing.Size(120, 22);
             this.Project5.Text = "Project 5";
             this.Project5.Click += new System.EventHandler(this.Project5_Click);
             // 
@@ -260,7 +265,7 @@ namespace mat_290_framework
             // 
             this.Project6.CheckOnClick = true;
             this.Project6.Name = "Project6";
-            this.Project6.Size = new System.Drawing.Size(152, 22);
+            this.Project6.Size = new System.Drawing.Size(120, 22);
             this.Project6.Text = "Project 6";
             this.Project6.Click += new System.EventHandler(this.Project6_Click);
             // 
@@ -268,7 +273,7 @@ namespace mat_290_framework
             // 
             this.Project7.CheckOnClick = true;
             this.Project7.Name = "Project7";
-            this.Project7.Size = new System.Drawing.Size(152, 22);
+            this.Project7.Size = new System.Drawing.Size(120, 22);
             this.Project7.Text = "Project 7";
             this.Project7.Click += new System.EventHandler(this.Project7_Click);
             // 
@@ -276,7 +281,7 @@ namespace mat_290_framework
             // 
             this.Project8.CheckOnClick = true;
             this.Project8.Name = "Project8";
-            this.Project8.Size = new System.Drawing.Size(152, 22);
+            this.Project8.Size = new System.Drawing.Size(120, 22);
             this.Project8.Text = "Project 8";
             this.Project8.Click += new System.EventHandler(this.Project8_Click);
             // 
@@ -329,6 +334,7 @@ namespace mat_290_framework
             0});
             this.NUD_degree.Visible = false;
             this.NUD_degree.ValueChanged += new System.EventHandler(this.NUD_degree_ValueChanged);
+            this.NUD_degree.Click += new System.EventHandler(this.NUD_degree_Click);
             // 
             // CB_cont
             // 
@@ -344,12 +350,50 @@ namespace mat_290_framework
             this.CB_cont.Visible = false;
             this.CB_cont.CheckedChanged += new System.EventHandler(this.CB_cont_CheckedChanged);
             // 
+            // Project1DegreeBox
+            // 
+            this.Project1DegreeBox.InterceptArrowKeys = false;
+            this.Project1DegreeBox.Location = new System.Drawing.Point(266, 510);
+            this.Project1DegreeBox.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.Project1DegreeBox.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Project1DegreeBox.Name = "Project1DegreeBox";
+            this.Project1DegreeBox.ReadOnly = true;
+            this.Project1DegreeBox.Size = new System.Drawing.Size(39, 20);
+            this.Project1DegreeBox.TabIndex = 8;
+            this.Project1DegreeBox.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Project1DegreeBox.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(263, 485);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Project 1 Degree";
+            this.label1.Visible = false;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // MAT290
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1049, 573);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Project1DegreeBox);
             this.Controls.Add(this.CB_cont);
             this.Controls.Add(this.NUD_degree);
             this.Controls.Add(this.Lbl_knot);
@@ -358,7 +402,7 @@ namespace mat_290_framework
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MAT290";
-            this.Text = "MAT290Framework";
+            this.Text = "-";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MAT290_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MAT290_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MAT290_MouseMove);
@@ -366,6 +410,7 @@ namespace mat_290_framework
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -404,6 +449,8 @@ namespace mat_290_framework
         private System.Windows.Forms.ToolStripMenuItem Project7;
        // private System.Windows.Forms.ToolStripMenuItem Project8;
         private System.Windows.Forms.ToolStripMenuItem Project8;
+        private System.Windows.Forms.NumericUpDown Project1DegreeBox;
+        private System.Windows.Forms.Label label1;
     }
 }
 

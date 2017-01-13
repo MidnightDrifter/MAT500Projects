@@ -14,12 +14,16 @@ namespace mat_290_framework
         {
             InitializeComponent();
 
-            pts_ = new List<Point2D>();   //a_sub_i coef
+            pts_ = new List<Point2D>();   
             tVal_ = 0.5F;
             degree_ = 0;
             knot_ = new List<float>();
             EdPtCont_ = true;
             rnd_ = new Random();
+
+            //Project 1
+            myCoefPoints = new List<Point2D>();
+            //proj1Degree = 1;
         }
 
         // Point class for general math use
@@ -80,6 +84,10 @@ namespace mat_290_framework
         List<float> knot_; // knot sequence for deboor
         bool EdPtCont_; // end point continuity flag for std knot seq contruction
         Random rnd_; // random number generator
+
+        List<Point2D> myCoefPoints;
+      //  int proj1Degree;
+
 
         // pickpt returns an index of the closest point to the passed in point
         //  -- usually a mouse position
@@ -437,7 +445,7 @@ namespace mat_290_framework
             // pens used for drawing elements of the display
             System.Drawing.Pen polyPen = new Pen(Color.Gray, 1.0f);
             System.Drawing.Pen shellPen = new Pen(Color.LightGray, 0.5f);
-            System.Drawing.Pen splinePen = new Pen(Color.Black, 1.5f);
+            System.Drawing.Pen splinePen = new Pen(Color.Red, 1.5f);
 
             if (Menu_Shell.Checked)
             {
@@ -623,14 +631,14 @@ namespace mat_290_framework
         }
         */
 
-            return  NLIMethod(pts_, t, degree_, 0);
+            return  NLIMethod(pts_, t, pts_.Count-1, 0);
 
     }
         
     private Point2D Bernstein(float t)
         {
             // return new Point2D(t, BBform(pts_,t,degree_,0));
-          return  BBform(pts_, t, degree_, 0);
+          return  BBform(pts_, t, pts_.Count-1, 0);
         }
 
         private const float MAX_DIST = 6.0F;
@@ -675,49 +683,107 @@ namespace mat_290_framework
 
         private void Project1_Click(object sender, EventArgs e)
         {
-            
+            Project1.Checked = true;
+            Project2.Checked = false;
+            Project3.Checked = false;
+            Project4.Checked = false;
+            Project5.Checked = false;
+            Project6.Checked = false;
+            Project7.Checked = false;
+            Project8.Checked = false;
         }
 
         private void Project2_Click(object sender, EventArgs e)
         {
-
+            Project1.Checked = false;
+            Project2.Checked = true;
+            Project3.Checked = false;
+            Project4.Checked = false;
+            Project5.Checked = false;
+            Project6.Checked = false;
+            Project7.Checked = false;
+            Project8.Checked = false;
         }
 
         private void Project3_Click(object sender, EventArgs e)
         {
-
+            Project1.Checked = false;
+            Project2.Checked = false;
+            Project3.Checked = true;
+            Project4.Checked = false;
+            Project5.Checked = false;
+            Project6.Checked = false;
+            Project7.Checked = false;
+            Project8.Checked = false;
         }
 
         private void Project4_Click(object sender, EventArgs e)
         {
-
+            Project1.Checked = false;
+            Project2.Checked = false;
+            Project3.Checked = false;
+            Project4.Checked = true;
+            Project5.Checked = false;
+            Project6.Checked = false;
+            Project7.Checked = false;
+            Project8.Checked = false;
         }
 
         private void Project5_Click(object sender, EventArgs e)
         {
-
+            Project1.Checked = false;
+            Project2.Checked = false;
+            Project3.Checked = false;
+            Project4.Checked = false;
+            Project5.Checked = true;
+            Project6.Checked = false;
+            Project7.Checked = false;
+            Project8.Checked = false;
         }
 
         private void Project6_Click(object sender, EventArgs e)
         {
-
+            Project1.Checked = false;
+            Project2.Checked = false;
+            Project3.Checked = false;
+            Project4.Checked = false;
+            Project5.Checked = false;
+            Project6.Checked = true;
+            Project7.Checked = false;
+            Project8.Checked = false;
         }
 
         private void Project7_Click(object sender, EventArgs e)
         {
-
+            Project1.Checked = false;
+            Project2.Checked = false;
+            Project3.Checked = false;
+            Project4.Checked = false;
+            Project5.Checked = false;
+            Project6.Checked = false;
+            Project7.Checked = true;
+            Project8.Checked = false;
         }
 
         private void Project8_Click(object sender, EventArgs e)
         {
-
+            Project1.Checked = false;
+            Project2.Checked = false;
+            Project3.Checked = false;
+            Project4.Checked = false;
+            Project5.Checked = false;
+            Project6.Checked = false;
+            Project7.Checked = false;
+            Project8.Checked = true;
         }
 
         private Point2D NLIMethod(List<Point2D> coef, float tValue, int upper, int lower)
         {
             if(upper ==0)
             {
-                return coef[lower];
+                if (coef.Count > 1)
+                { return coef[lower]; }
+                else { return coef[0]; }
             }
             else
             {
@@ -759,6 +825,21 @@ namespace mat_290_framework
         private void chart1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void NUD_degree_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello world.");
         }
     }
 }
