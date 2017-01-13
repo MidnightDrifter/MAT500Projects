@@ -473,7 +473,7 @@ namespace mat_290_framework
 
             // you can change these variables at will; i have just chosen there
             //  to be six sample points for every point placed on the screen
-            float steps = pts_.Count * 6;
+            float steps = pts_.Count * 5;
             float alpha = 1 / steps;
 
             ///////////////////////////////////////////////////////////////////////////////
@@ -795,11 +795,11 @@ namespace mat_290_framework
         {
             if(lower==0 || upper==lower)
             { return 1; }
-           else if(upper==lower-1 || lower ==1)
+           else if(upper-1==lower || lower ==1)
             {
                 return upper;
             }
-
+            
             else
             {
                 return nCr(upper - 1, lower - 1) + nCr(upper - 1, lower);
@@ -810,10 +810,12 @@ namespace mat_290_framework
         {Point2D o = new Point2D(0,0);
             for(int i=0;i<coef.Count;i++)
             {
-                o.x += (coef[i].x * nCr(upper, lower) * (float)(Math.Pow((1 - tValue), upper - lower) * Math.Pow(tValue, lower)));
-                o.y += (coef[i].y * nCr(upper, lower) * (float)(Math.Pow((1 - tValue), upper - lower) * Math.Pow(tValue, lower)));
+                o += (coef[i] * nCr(upper, i) * (float)((Math.Pow((1 - tValue), upper - i) * Math.Pow(tValue, i))));
+               // o.y += (coef[i].y * nCr(upper, lower) * (float)(Math.Pow((1 - tValue), upper - lower) * Math.Pow(tValue, lower)));
 
             }
+            if(coef.Count==1)
+            { return coef[0]; }
             return o;
         }
 
