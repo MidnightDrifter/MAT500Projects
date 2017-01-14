@@ -125,13 +125,32 @@ namespace mat_290_framework
             // if the right mouse button is being pressed
             if (pts_.Count != 0 && e.Button == MouseButtons.Right)
             {
-                // grab the closest point and snap it to the mouse
-                int index = PickPt(new Point2D(e.X, e.Y));
+                if (Project1.Checked)
+                {
+                    int index = PickPt(new Point2D(e.X, e.Y));
+                    float temp = e.Y;
+                    
+                    if(temp <-3)
+                    {
+                        temp = -3;
+                    }
+                    if(temp>3)
+                    {
+                        temp = 3;
+                    }
 
-                pts_[index].x = e.X;
-                pts_[index].y = e.Y;
+                    pts_[index].y = temp;
+                }
+                else
+                {
+                    // grab the closest point and snap it to the mouse
+                    int index = PickPt(new Point2D(e.X, e.Y));
 
-                Refresh();
+                    pts_[index].x = e.X;
+                    pts_[index].y = e.Y;
+
+                    Refresh();
+                }
             }
         }
 
@@ -140,15 +159,24 @@ namespace mat_290_framework
             // if the left mouse button was clicked
             if (e.Button == MouseButtons.Left)
             {
-                // add a new point to the controlPoints
-                pts_.Add(new Point2D(e.X, e.Y));
+                if (Project1.Checked)// || Project5.Checked)
+                { }
 
-                if (Menu_DeBoor.Checked)
+                else if (Project5.Checked)
                 {
-                    ResetKnotSeq();
-                    UpdateKnotSeq();
-                }
 
+                }
+                // add a new point to the controlPoints
+                else
+                {
+                    pts_.Add(new Point2D(e.X, e.Y));
+
+                    if (Menu_DeBoor.Checked)
+                    {
+                        ResetKnotSeq();
+                        UpdateKnotSeq();
+                    }
+                }
                 Refresh();
             }
 
@@ -483,6 +511,11 @@ namespace mat_290_framework
             // DeCastlejau algorithm
             if (Menu_DeCast.Checked)
             {
+                if(Project1.Checked)
+                {
+
+                }
+
                 Point2D current_left;
                 Point2D current_right = new Point2D(DeCastlejau(0));
 
