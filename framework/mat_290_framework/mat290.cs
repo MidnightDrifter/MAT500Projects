@@ -186,17 +186,17 @@ namespace mat_290_framework
             // if the left mouse button was clicked
             if (e.Button == MouseButtons.Left)
             {
-                
+                 /*
                 if (Project1.Checked || Project5.Checked)
                 { Refresh(); }
-                /*
+               
                 else if (Project5.Checked)
                 {
 
                 }
                 */
                 // add a new point to the controlPoints
-                else
+              //  else
                 {
                     pts_.Add(new Point2D(e.X, e.Y));
 
