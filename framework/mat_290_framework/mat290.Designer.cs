@@ -58,13 +58,11 @@ namespace mat_290_framework
             this.Lbl_knot = new System.Windows.Forms.Label();
             this.NUD_degree = new System.Windows.Forms.NumericUpDown();
             this.CB_cont = new System.Windows.Forms.CheckBox();
-            this.Project1DegreeBox = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.P1DegreeBox = new System.Windows.Forms.NumericUpDown();
+            this.P1DegreeLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P1DegreeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -352,51 +350,41 @@ namespace mat_290_framework
             this.CB_cont.Visible = false;
             this.CB_cont.CheckedChanged += new System.EventHandler(this.CB_cont_CheckedChanged);
             // 
-            // Project1DegreeBox
+            // P1DegreeBox
             // 
-            this.Project1DegreeBox.InterceptArrowKeys = false;
-            this.Project1DegreeBox.Location = new System.Drawing.Point(266, 510);
-            this.Project1DegreeBox.Maximum = new decimal(new int[] {
+            this.P1DegreeBox.InterceptArrowKeys = false;
+            this.P1DegreeBox.Location = new System.Drawing.Point(266, 510);
+            this.P1DegreeBox.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.Project1DegreeBox.Minimum = new decimal(new int[] {
+            this.P1DegreeBox.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.Project1DegreeBox.Name = "Project1DegreeBox";
-            this.Project1DegreeBox.ReadOnly = true;
-            this.Project1DegreeBox.Size = new System.Drawing.Size(39, 20);
-            this.Project1DegreeBox.TabIndex = 8;
-            this.Project1DegreeBox.Value = new decimal(new int[] {
+            this.P1DegreeBox.Name = "P1DegreeBox";
+            this.P1DegreeBox.ReadOnly = true;
+            this.P1DegreeBox.Size = new System.Drawing.Size(39, 20);
+            this.P1DegreeBox.TabIndex = 8;
+            this.P1DegreeBox.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.Project1DegreeBox.Visible = false;
+            this.P1DegreeBox.Visible = false;
             // 
-            // label1
+            // P1DegreeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(263, 485);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Project 1 Degree";
-            this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(537, 187);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Minimum = -3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 150);
-            this.trackBar1.TabIndex = 10;
+            this.P1DegreeLabel.AutoSize = true;
+            this.P1DegreeLabel.Location = new System.Drawing.Point(263, 485);
+            this.P1DegreeLabel.Name = "P1DegreeLabel";
+            this.P1DegreeLabel.Size = new System.Drawing.Size(87, 13);
+            this.P1DegreeLabel.TabIndex = 9;
+            this.P1DegreeLabel.Text = "Project 1 Degree";
+            this.P1DegreeLabel.Visible = false;
+            this.P1DegreeLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // MAT290
             // 
@@ -404,9 +392,8 @@ namespace mat_290_framework
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1049, 573);
-            this.Controls.Add(this.trackBar1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Project1DegreeBox);
+            this.Controls.Add(this.P1DegreeLabel);
+            this.Controls.Add(this.P1DegreeBox);
             this.Controls.Add(this.CB_cont);
             this.Controls.Add(this.NUD_degree);
             this.Controls.Add(this.Lbl_knot);
@@ -416,6 +403,7 @@ namespace mat_290_framework
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MAT290";
             this.Text = "-";
+            this.Load += new System.EventHandler(this.MAT290_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MAT290_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MAT290_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MAT290_MouseMove);
@@ -423,8 +411,7 @@ namespace mat_290_framework
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P1DegreeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -463,9 +450,8 @@ namespace mat_290_framework
         private System.Windows.Forms.ToolStripMenuItem Project7;
        // private System.Windows.Forms.ToolStripMenuItem Project8;
         private System.Windows.Forms.ToolStripMenuItem Project8;
-        private System.Windows.Forms.NumericUpDown Project1DegreeBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.NumericUpDown P1DegreeBox;
+        private System.Windows.Forms.Label P1DegreeLabel;
     }
 }
 
