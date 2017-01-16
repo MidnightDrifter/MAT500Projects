@@ -60,6 +60,7 @@ namespace mat_290_framework
             this.CB_cont = new System.Windows.Forms.CheckBox();
             this.P1DegreeBox = new System.Windows.Forms.NumericUpDown();
             this.P1DegreeLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P1DegreeBox)).BeginInit();
@@ -222,18 +223,16 @@ namespace mat_290_framework
             // 
             // Project1
             // 
-            this.Project1.Checked = true;
             this.Project1.CheckOnClick = true;
-            this.Project1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Project1.Name = "Project1";
-            this.Project1.Size = new System.Drawing.Size(120, 22);
+            this.Project1.Size = new System.Drawing.Size(152, 22);
             this.Project1.Text = "Project 1";
             // 
             // Project2
             // 
             this.Project2.CheckOnClick = true;
             this.Project2.Name = "Project2";
-            this.Project2.Size = new System.Drawing.Size(120, 22);
+            this.Project2.Size = new System.Drawing.Size(152, 22);
             this.Project2.Text = "Project 2";
             this.Project2.Click += new System.EventHandler(this.Project2_Click);
             // 
@@ -241,7 +240,7 @@ namespace mat_290_framework
             // 
             this.Project3.CheckOnClick = true;
             this.Project3.Name = "Project3";
-            this.Project3.Size = new System.Drawing.Size(120, 22);
+            this.Project3.Size = new System.Drawing.Size(152, 22);
             this.Project3.Text = "Project 3";
             this.Project3.Click += new System.EventHandler(this.Project3_Click);
             // 
@@ -249,7 +248,7 @@ namespace mat_290_framework
             // 
             this.Project4.CheckOnClick = true;
             this.Project4.Name = "Project4";
-            this.Project4.Size = new System.Drawing.Size(120, 22);
+            this.Project4.Size = new System.Drawing.Size(152, 22);
             this.Project4.Text = "Project 4";
             this.Project4.Click += new System.EventHandler(this.Project4_Click);
             // 
@@ -257,7 +256,7 @@ namespace mat_290_framework
             // 
             this.Project5.CheckOnClick = true;
             this.Project5.Name = "Project5";
-            this.Project5.Size = new System.Drawing.Size(120, 22);
+            this.Project5.Size = new System.Drawing.Size(152, 22);
             this.Project5.Text = "Project 5";
             this.Project5.Click += new System.EventHandler(this.Project5_Click);
             // 
@@ -265,7 +264,7 @@ namespace mat_290_framework
             // 
             this.Project6.CheckOnClick = true;
             this.Project6.Name = "Project6";
-            this.Project6.Size = new System.Drawing.Size(120, 22);
+            this.Project6.Size = new System.Drawing.Size(152, 22);
             this.Project6.Text = "Project 6";
             this.Project6.Click += new System.EventHandler(this.Project6_Click);
             // 
@@ -273,7 +272,7 @@ namespace mat_290_framework
             // 
             this.Project7.CheckOnClick = true;
             this.Project7.Name = "Project7";
-            this.Project7.Size = new System.Drawing.Size(120, 22);
+            this.Project7.Size = new System.Drawing.Size(152, 22);
             this.Project7.Text = "Project 7";
             this.Project7.Click += new System.EventHandler(this.Project7_Click);
             // 
@@ -281,7 +280,7 @@ namespace mat_290_framework
             // 
             this.Project8.CheckOnClick = true;
             this.Project8.Name = "Project8";
-            this.Project8.Size = new System.Drawing.Size(120, 22);
+            this.Project8.Size = new System.Drawing.Size(152, 22);
             this.Project8.Text = "Project 8";
             this.Project8.Click += new System.EventHandler(this.Project8_Click);
             // 
@@ -387,12 +386,23 @@ namespace mat_290_framework
             this.P1DegreeLabel.Visible = false;
             this.P1DegreeLabel.Click += new System.EventHandler(this.label1_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(800, 541);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(129, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "CLEAR POINTS";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // MAT290
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1393, 573);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.P1DegreeLabel);
             this.Controls.Add(this.P1DegreeBox);
             this.Controls.Add(this.CB_cont);
@@ -442,7 +452,6 @@ namespace mat_290_framework
         private System.Windows.Forms.NumericUpDown NUD_degree;
         private System.Windows.Forms.CheckBox CB_cont;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem Project1;
         private System.Windows.Forms.ToolStripMenuItem Project2;
         private System.Windows.Forms.ToolStripMenuItem Project3;
         private System.Windows.Forms.ToolStripMenuItem Project4;
@@ -453,6 +462,8 @@ namespace mat_290_framework
         private System.Windows.Forms.ToolStripMenuItem Project8;
         private System.Windows.Forms.NumericUpDown P1DegreeBox;
         private System.Windows.Forms.Label P1DegreeLabel;
+        private System.Windows.Forms.ToolStripMenuItem Project1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -511,10 +511,13 @@ namespace mat_290_framework
         private void DrawScreen(System.Drawing.Graphics gfx)
         {
 
+            P1DegreeBox.Visible = Project1.Checked;
+            P1DegreeLabel.Visible = Project1.Checked; 
+
+
             if (Project1.Checked)
             {
-                P1DegreeBox.Visible = true;
-                P1DegreeLabel.Visible = true;
+              
 
                 pts_.Clear();
                 float f = (float)P1DegreeBox.Value;
@@ -529,14 +532,14 @@ namespace mat_290_framework
 
             else if (Project5.Checked)
             {
-                P1DegreeBox.Visible = false;
-                P1DegreeLabel.Visible = false;
+
             }
             // to prevent unecessary drawing
             else if (pts_.Count == 0)// && !Project1.Checked && !Project5.Checked)
             {
-                P1DegreeBox.Visible = false;
-                P1DegreeLabel.Visible = false;
+                pts_.Clear();
+               // P1DegreeBox.Visible = false;
+                //P1DegreeLabel.Visible = false;
                 return;
             }
             // pens used for drawing elements of the display
@@ -1070,6 +1073,11 @@ namespace mat_290_framework
         private void P1DegreeBox_ValueChanged(object sender, EventArgs e)
         {
             Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pts_.Clear();
         }
     }
 }
