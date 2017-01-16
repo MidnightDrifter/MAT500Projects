@@ -374,6 +374,7 @@ namespace mat_290_framework
             0,
             0});
             this.P1DegreeBox.Visible = false;
+            this.P1DegreeBox.ValueChanged += new System.EventHandler(this.P1DegreeBox_ValueChanged);
             // 
             // P1DegreeLabel
             // 

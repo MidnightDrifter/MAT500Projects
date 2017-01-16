@@ -199,7 +199,8 @@ namespace mat_290_framework
                 // add a new point to the controlPoints
               //  else
                 {
-                    pts_.Add(new Point2D(e.X, e.Y));
+                    if (!Project1.Checked && !Project5.Checked)
+                    { pts_.Add(new Point2D(e.X, e.Y)); }
 
                     for (int i = 0; i < 40; i++)
                     {
@@ -509,10 +510,35 @@ namespace mat_290_framework
 
         private void DrawScreen(System.Drawing.Graphics gfx)
         {
-            // to prevent unecessary drawing
-            if (pts_.Count == 0)// && !Project1.Checked && !Project5.Checked)
-                return;
 
+            if (Project1.Checked)
+            {
+                P1DegreeBox.Visible = true;
+                P1DegreeLabel.Visible = true;
+
+                pts_.Clear();
+                float f = (float)P1DegreeBox.Value;
+
+                for (int i = 0; i < f; i++)
+                {
+
+                    pts_.Add(new Point2D((i / f), 1));
+                }
+
+            }
+
+            else if (Project5.Checked)
+            {
+                P1DegreeBox.Visible = false;
+                P1DegreeLabel.Visible = false;
+            }
+            // to prevent unecessary drawing
+            else if (pts_.Count == 0)// && !Project1.Checked && !Project5.Checked)
+            {
+                P1DegreeBox.Visible = false;
+                P1DegreeLabel.Visible = false;
+                return;
+            }
             // pens used for drawing elements of the display
             System.Drawing.Pen polyPen = new Pen(Color.Gray, 1.0f);
             System.Drawing.Pen shellPen = new Pen(Color.LightGray, 0.5f);
@@ -557,23 +583,23 @@ namespace mat_290_framework
             ///////////////////////////////////////////////////////////////////////////////
             // Drawing code for algorithms goes in here                                  //
             ///////////////////////////////////////////////////////////////////////////////
-
+            /*
             if (Project1.Checked)
             {
                 P1DegreeBox.Visible = true;
                 P1DegreeLabel.Visible = true;
 
-          //      pts_.Clear();
+                pts_.Clear();
                 float f = (float)P1DegreeBox.Value;
 
                 for(int i=0;i<f;i++)
                 {
                   
-             //       pts_.Add(new Point2D( (i / f), 1));
+                    pts_.Add(new Point2D( (i / f), 1));
                 }
 
 
-                /*
+                
                 List<Point2D> p1Points = new List<Point2D>();
 
                 for (int i = 0; i < pts_.Count; i++)
@@ -583,16 +609,17 @@ namespace mat_290_framework
                 }
 
                 pts_ = p1Points;
-                */
+                
             }
-
+            
             else
+            
             {
                 P1DegreeBox.Visible = false;
                 P1DegreeLabel.Visible = false;
 
             }
-
+            */
 
             // DeCastlejau algorithm
             if (Menu_DeCast.Checked)
@@ -602,11 +629,23 @@ namespace mat_290_framework
                 Point2D current_left;
                 Point2D current_right = new Point2D(DeCastlejau(0));
 
+                if (Project1.Checked)
+                {
+                    current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                    current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                }
+
                 for (float t = alpha; t < 1; t += alpha)
                 {
                     current_left = current_right;
 
                     current_right = DeCastlejau(t);
+                    if (Project1.Checked)
+                    {
+                        current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                        current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                    }
+                    
                     gfx.DrawLine(splinePen, current_left.P(), current_right.P());
                 }
 
@@ -618,11 +657,26 @@ namespace mat_290_framework
             {
                 Point2D current_left;
                 Point2D current_right = new Point2D(Bernstein(0));
-                
+
+                if (Project1.Checked)
+                {
+                    current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                    current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                }
+
                 for (float t = alpha; t < 1; t += alpha)
                 {
                     current_left = current_right;
                     current_right = Bernstein(t);
+
+
+                    if (Project1.Checked)
+                    {
+                        current_right.x = rangeTransform(0, 1, 10, ClientSize.Width, current_right.x);
+                        current_right.y = rangeTransform(-3, 3, 10, ClientSize.Height, current_right.y);
+                    }
+
+
                     gfx.DrawLine(splinePen, current_left.P(), current_right.P());
                 }
 
@@ -1011,6 +1065,11 @@ namespace mat_290_framework
         private void MAT290_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void P1DegreeBox_ValueChanged(object sender, EventArgs e)
+        {
+            Refresh();
         }
     }
 }
