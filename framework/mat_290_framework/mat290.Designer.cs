@@ -74,7 +74,7 @@ namespace mat_290_framework
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1049, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1393, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -391,7 +391,7 @@ namespace mat_290_framework
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1049, 573);
+            this.ClientSize = new System.Drawing.Size(1393, 573);
             this.Controls.Add(this.P1DegreeLabel);
             this.Controls.Add(this.P1DegreeBox);
             this.Controls.Add(this.CB_cont);

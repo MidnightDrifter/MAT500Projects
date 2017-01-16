@@ -186,13 +186,15 @@ namespace mat_290_framework
             // if the left mouse button was clicked
             if (e.Button == MouseButtons.Left)
             {
-                if (Project1.Checked)// || Project5.Checked)
-                { }
-
+                
+                if (Project1.Checked || Project5.Checked)
+                { Refresh(); }
+                /*
                 else if (Project5.Checked)
                 {
 
                 }
+                */
                 // add a new point to the controlPoints
                 else
                 {
@@ -507,7 +509,7 @@ namespace mat_290_framework
         private void DrawScreen(System.Drawing.Graphics gfx)
         {
             // to prevent unecessary drawing
-            if (pts_.Count == 0)
+            if (pts_.Count == 0 && !Project1.Checked && !Project5.Checked)
                 return;
 
             // pens used for drawing elements of the display
@@ -543,7 +545,14 @@ namespace mat_290_framework
             //  to be six sample points for every point placed on the screen
             float steps = pts_.Count * 5;
             float alpha = 1 / steps;
+            /*
+                        List<Point2D> ptsCopy = new List<Point2D>();
+                        for(int i=0;i<pts_.Count;i++)
+                        {
+                            ptsCopy.Add(pts_[i]);
+                        }
 
+            */
             ///////////////////////////////////////////////////////////////////////////////
             // Drawing code for algorithms goes in here                                  //
             ///////////////////////////////////////////////////////////////////////////////
@@ -553,13 +562,34 @@ namespace mat_290_framework
                 P1DegreeBox.Visible = true;
                 P1DegreeLabel.Visible = true;
 
+          //      pts_.Clear();
+                float f = (float)P1DegreeBox.Value;
+
+                for(int i=0;i<f;i++)
+                {
+                  
+             //       pts_.Add(new Point2D( (i / f), 1));
+                }
+
+
+                /*
+                List<Point2D> p1Points = new List<Point2D>();
+
+                for (int i = 0; i < pts_.Count; i++)
+                {
+                    p1Points.Add(new Point2D(rangeTransform(0, ClientSize.Width, 0, 1, pts_[i].x), rangeTransform(0, ClientSize.Height, -3, 3, pts_[i].y)));
+
+                }
+
+                pts_ = p1Points;
+                */
             }
 
             else
             {
                 P1DegreeBox.Visible = false;
                 P1DegreeLabel.Visible = false;
-              
+
             }
 
 
@@ -574,6 +604,7 @@ namespace mat_290_framework
                 for (float t = alpha; t < 1; t += alpha)
                 {
                     current_left = current_right;
+
                     current_right = DeCastlejau(t);
                     gfx.DrawLine(splinePen, current_left.P(), current_right.P());
                 }
@@ -651,7 +682,7 @@ namespace mat_290_framework
 
                 gfx.DrawLine(splinePen, current_right.P(), DeBoorAlgthm(lastT).P());
             }
-
+            
             ///////////////////////////////////////////////////////////////////////////////
             // Drawing code end                                                          //
             ///////////////////////////////////////////////////////////////////////////////
@@ -720,6 +751,16 @@ namespace mat_290_framework
 
     }
         
+    private Point2D Bernstein(float t,List<Point2D> p)
+        {
+            return BBform(p, t, p.Count - 1, 0);
+        }
+
+        private Point2D DeCastlejau(float t, List<Point2D>p)
+        {
+            return NLIMethod(p, t, p.Count - 1, 0);
+        }
+
     private Point2D Bernstein(float t)
         {
             // return new Point2D(t, BBform(pts_,t,degree_,0));
@@ -933,6 +974,12 @@ namespace mat_290_framework
             if(coef.Count==1)
             { return coef[0]; }
             return o;
+        }
+
+
+        private float rangeTransform(float inputRangeMin, float inputRangeMax, float outputRangeMin, float outputRangeMax, float inputX) 
+        {
+            return  (((outputRangeMax - outputRangeMin) * (inputX - inputRangeMin)) / (inputRangeMax - inputRangeMin)) + outputRangeMin;
         }
 
         private void chart1_Click(object sender, EventArgs e)
