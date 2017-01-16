@@ -151,7 +151,7 @@ namespace mat_290_framework
         {
             // if the right mouse button is being pressed
             if (pts_.Count != 0 && e.Button == MouseButtons.Right)
-            {
+            {/*
                 if (Project1.Checked)
                 {
                     int index = PickPt(new Point2D(e.X, e.Y));
@@ -169,6 +169,7 @@ namespace mat_290_framework
                     pts_[index].y = temp;
                 }
                 else
+              */
                 {
                     // grab the closest point and snap it to the mouse
                     int index = PickPt(new Point2D(e.X, e.Y));
@@ -509,7 +510,7 @@ namespace mat_290_framework
         private void DrawScreen(System.Drawing.Graphics gfx)
         {
             // to prevent unecessary drawing
-            if (pts_.Count == 0 && !Project1.Checked && !Project5.Checked)
+            if (pts_.Count == 0)// && !Project1.Checked && !Project5.Checked)
                 return;
 
             // pens used for drawing elements of the display
@@ -908,7 +909,7 @@ namespace mat_290_framework
 
      
 
-            if (deCastlejauTableP1[upper, lower].x == deCastlejauTableP1[upper, lower].y && deCastlejauTableP1[upper, lower].x == -1)
+        //    if (deCastlejauTableP1[upper, lower].x == deCastlejauTableP1[upper, lower].y && deCastlejauTableP1[upper, lower].x == -1)
             {
 
                 if (upper == 0)
@@ -934,7 +935,7 @@ namespace mat_290_framework
                 }
             }
 
-            else { return deCastlejauTableP1[upper, lower]; }
+          //  else { return deCastlejauTableP1[upper, lower]; }
         }
         public long nCr(int upper, int lower)
         {
