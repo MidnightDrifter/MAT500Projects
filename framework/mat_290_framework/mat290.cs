@@ -1075,10 +1075,7 @@ namespace mat_290_framework
 
         }
 
-        private void MAT290_Load(object sender, EventArgs e)
-        {
-
-        }
+ 
 
         private void P1DegreeBox_ValueChanged(object sender, EventArgs e)
         {
