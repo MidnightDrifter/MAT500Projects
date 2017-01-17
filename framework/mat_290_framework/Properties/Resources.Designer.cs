@@ -59,5 +59,15 @@ namespace mat_290_framework.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Project1GraphBackground {
+            get {
+                object obj = ResourceManager.GetObject("Project1GraphBackground", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

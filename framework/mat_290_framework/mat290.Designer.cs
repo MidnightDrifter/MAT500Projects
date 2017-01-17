@@ -390,6 +390,8 @@ namespace mat_290_framework
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.BackgroundImage = global::mat_290_framework.Properties.Resources.Project1GraphBackground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1393, 573);
             this.Controls.Add(this.P1DegreeLabel);
             this.Controls.Add(this.P1DegreeBox);
@@ -399,6 +401,7 @@ namespace mat_290_framework
             this.Controls.Add(this.Lbl_degree);
             this.Controls.Add(this.Txt_knot);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MAT290";
             this.Text = "-";
