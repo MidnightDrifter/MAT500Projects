@@ -875,6 +875,11 @@ namespace mat_290_framework
             Project6.Checked = false;
             Project7.Checked = false;
             Project8.Checked = false;
+
+            //800 high, 500 long
+            //Top, left, right, bot:  50, 100,1100,850
+
+
         }
 
         private void Project2_Click(object sender, EventArgs e)

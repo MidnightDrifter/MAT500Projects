@@ -60,7 +60,6 @@ namespace mat_290_framework
             this.CB_cont = new System.Windows.Forms.CheckBox();
             this.P1DegreeBox = new System.Windows.Forms.NumericUpDown();
             this.P1DegreeLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.P1DegreeBox)).BeginInit();
@@ -386,23 +385,12 @@ namespace mat_290_framework
             this.P1DegreeLabel.Visible = false;
             this.P1DegreeLabel.Click += new System.EventHandler(this.label1_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(800, 541);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "CLEAR POINTS";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // MAT290
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1393, 573);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.P1DegreeLabel);
             this.Controls.Add(this.P1DegreeBox);
             this.Controls.Add(this.CB_cont);
@@ -463,7 +451,6 @@ namespace mat_290_framework
         private System.Windows.Forms.NumericUpDown P1DegreeBox;
         private System.Windows.Forms.Label P1DegreeLabel;
         private System.Windows.Forms.ToolStripMenuItem Project1;
-        private System.Windows.Forms.Button button1;
     }
 }
 
