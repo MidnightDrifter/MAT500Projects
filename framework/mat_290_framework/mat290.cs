@@ -874,7 +874,12 @@ namespace mat_290_framework
 
         private void NUD_degree_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello world.");
+        //    MessageBox.Show("Hello world.");
+        }
+
+        private void MAT290_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

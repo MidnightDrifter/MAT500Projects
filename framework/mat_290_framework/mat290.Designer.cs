@@ -60,11 +60,9 @@ namespace mat_290_framework
             this.CB_cont = new System.Windows.Forms.CheckBox();
             this.Project1DegreeBox = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -388,23 +386,12 @@ namespace mat_290_framework
             this.label1.Visible = false;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(537, 187);
-            this.trackBar1.Maximum = 3;
-            this.trackBar1.Minimum = -3;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.Size = new System.Drawing.Size(45, 150);
-            this.trackBar1.TabIndex = 10;
-            // 
             // MAT290
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(1049, 573);
-            this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Project1DegreeBox);
             this.Controls.Add(this.CB_cont);
@@ -416,6 +403,7 @@ namespace mat_290_framework
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MAT290";
             this.Text = "-";
+            this.Load += new System.EventHandler(this.MAT290_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.MAT290_Paint);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MAT290_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MAT290_MouseMove);
@@ -424,7 +412,6 @@ namespace mat_290_framework
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -465,7 +452,6 @@ namespace mat_290_framework
         private System.Windows.Forms.ToolStripMenuItem Project8;
         private System.Windows.Forms.NumericUpDown Project1DegreeBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar1;
     }
 }
 
