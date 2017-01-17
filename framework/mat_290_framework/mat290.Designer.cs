@@ -58,11 +58,11 @@ namespace mat_290_framework
             this.Lbl_knot = new System.Windows.Forms.Label();
             this.NUD_degree = new System.Windows.Forms.NumericUpDown();
             this.CB_cont = new System.Windows.Forms.CheckBox();
-            this.Project1DegreeBox = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.P1DegreeBox = new System.Windows.Forms.NumericUpDown();
+            this.P1DegreeLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P1DegreeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -74,7 +74,7 @@ namespace mat_290_framework
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1049, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1393, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -222,18 +222,16 @@ namespace mat_290_framework
             // 
             // Project1
             // 
-            this.Project1.Checked = true;
             this.Project1.CheckOnClick = true;
-            this.Project1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.Project1.Name = "Project1";
-            this.Project1.Size = new System.Drawing.Size(120, 22);
+            this.Project1.Size = new System.Drawing.Size(152, 22);
             this.Project1.Text = "Project 1";
             // 
             // Project2
             // 
             this.Project2.CheckOnClick = true;
             this.Project2.Name = "Project2";
-            this.Project2.Size = new System.Drawing.Size(120, 22);
+            this.Project2.Size = new System.Drawing.Size(152, 22);
             this.Project2.Text = "Project 2";
             this.Project2.Click += new System.EventHandler(this.Project2_Click);
             // 
@@ -241,7 +239,7 @@ namespace mat_290_framework
             // 
             this.Project3.CheckOnClick = true;
             this.Project3.Name = "Project3";
-            this.Project3.Size = new System.Drawing.Size(120, 22);
+            this.Project3.Size = new System.Drawing.Size(152, 22);
             this.Project3.Text = "Project 3";
             this.Project3.Click += new System.EventHandler(this.Project3_Click);
             // 
@@ -249,7 +247,7 @@ namespace mat_290_framework
             // 
             this.Project4.CheckOnClick = true;
             this.Project4.Name = "Project4";
-            this.Project4.Size = new System.Drawing.Size(120, 22);
+            this.Project4.Size = new System.Drawing.Size(152, 22);
             this.Project4.Text = "Project 4";
             this.Project4.Click += new System.EventHandler(this.Project4_Click);
             // 
@@ -257,7 +255,7 @@ namespace mat_290_framework
             // 
             this.Project5.CheckOnClick = true;
             this.Project5.Name = "Project5";
-            this.Project5.Size = new System.Drawing.Size(120, 22);
+            this.Project5.Size = new System.Drawing.Size(152, 22);
             this.Project5.Text = "Project 5";
             this.Project5.Click += new System.EventHandler(this.Project5_Click);
             // 
@@ -265,7 +263,7 @@ namespace mat_290_framework
             // 
             this.Project6.CheckOnClick = true;
             this.Project6.Name = "Project6";
-            this.Project6.Size = new System.Drawing.Size(120, 22);
+            this.Project6.Size = new System.Drawing.Size(152, 22);
             this.Project6.Text = "Project 6";
             this.Project6.Click += new System.EventHandler(this.Project6_Click);
             // 
@@ -273,7 +271,7 @@ namespace mat_290_framework
             // 
             this.Project7.CheckOnClick = true;
             this.Project7.Name = "Project7";
-            this.Project7.Size = new System.Drawing.Size(120, 22);
+            this.Project7.Size = new System.Drawing.Size(152, 22);
             this.Project7.Text = "Project 7";
             this.Project7.Click += new System.EventHandler(this.Project7_Click);
             // 
@@ -281,7 +279,7 @@ namespace mat_290_framework
             // 
             this.Project8.CheckOnClick = true;
             this.Project8.Name = "Project8";
-            this.Project8.Size = new System.Drawing.Size(120, 22);
+            this.Project8.Size = new System.Drawing.Size(152, 22);
             this.Project8.Text = "Project 8";
             this.Project8.Click += new System.EventHandler(this.Project8_Click);
             // 
@@ -350,56 +348,60 @@ namespace mat_290_framework
             this.CB_cont.Visible = false;
             this.CB_cont.CheckedChanged += new System.EventHandler(this.CB_cont_CheckedChanged);
             // 
-            // Project1DegreeBox
+            // P1DegreeBox
             // 
-            this.Project1DegreeBox.InterceptArrowKeys = false;
-            this.Project1DegreeBox.Location = new System.Drawing.Point(266, 510);
-            this.Project1DegreeBox.Maximum = new decimal(new int[] {
+            this.P1DegreeBox.InterceptArrowKeys = false;
+            this.P1DegreeBox.Location = new System.Drawing.Point(266, 510);
+            this.P1DegreeBox.Maximum = new decimal(new int[] {
             20,
             0,
             0,
             0});
-            this.Project1DegreeBox.Minimum = new decimal(new int[] {
+            this.P1DegreeBox.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.Project1DegreeBox.Name = "Project1DegreeBox";
-            this.Project1DegreeBox.ReadOnly = true;
-            this.Project1DegreeBox.Size = new System.Drawing.Size(39, 20);
-            this.Project1DegreeBox.TabIndex = 8;
-            this.Project1DegreeBox.Value = new decimal(new int[] {
+            this.P1DegreeBox.Name = "P1DegreeBox";
+            this.P1DegreeBox.ReadOnly = true;
+            this.P1DegreeBox.Size = new System.Drawing.Size(39, 20);
+            this.P1DegreeBox.TabIndex = 8;
+            this.P1DegreeBox.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.Project1DegreeBox.Visible = false;
+            this.P1DegreeBox.Visible = false;
+            this.P1DegreeBox.ValueChanged += new System.EventHandler(this.P1DegreeBox_ValueChanged);
             // 
-            // label1
+            // P1DegreeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(263, 485);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Project 1 Degree";
-            this.label1.Visible = false;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.P1DegreeLabel.AutoSize = true;
+            this.P1DegreeLabel.Location = new System.Drawing.Point(263, 485);
+            this.P1DegreeLabel.Name = "P1DegreeLabel";
+            this.P1DegreeLabel.Size = new System.Drawing.Size(87, 13);
+            this.P1DegreeLabel.TabIndex = 9;
+            this.P1DegreeLabel.Text = "Project 1 Degree";
+            this.P1DegreeLabel.Visible = false;
+            this.P1DegreeLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // MAT290
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1049, 573);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.Project1DegreeBox);
+            this.BackgroundImage = global::mat_290_framework.Properties.Resources.Project1GraphBackground;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientSize = new System.Drawing.Size(1393, 573);
+            this.Controls.Add(this.P1DegreeLabel);
+            this.Controls.Add(this.P1DegreeBox);
             this.Controls.Add(this.CB_cont);
             this.Controls.Add(this.NUD_degree);
             this.Controls.Add(this.Lbl_knot);
             this.Controls.Add(this.Lbl_degree);
             this.Controls.Add(this.Txt_knot);
             this.Controls.Add(this.menuStrip1);
+            this.DoubleBuffered = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MAT290";
             this.Text = "-";
@@ -411,7 +413,7 @@ namespace mat_290_framework
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUD_degree)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Project1DegreeBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.P1DegreeBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,7 +443,6 @@ namespace mat_290_framework
         private System.Windows.Forms.NumericUpDown NUD_degree;
         private System.Windows.Forms.CheckBox CB_cont;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem Project1;
         private System.Windows.Forms.ToolStripMenuItem Project2;
         private System.Windows.Forms.ToolStripMenuItem Project3;
         private System.Windows.Forms.ToolStripMenuItem Project4;
@@ -450,8 +451,9 @@ namespace mat_290_framework
         private System.Windows.Forms.ToolStripMenuItem Project7;
        // private System.Windows.Forms.ToolStripMenuItem Project8;
         private System.Windows.Forms.ToolStripMenuItem Project8;
-        private System.Windows.Forms.NumericUpDown Project1DegreeBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown P1DegreeBox;
+        private System.Windows.Forms.Label P1DegreeLabel;
+        private System.Windows.Forms.ToolStripMenuItem Project1;
     }
 }
 

@@ -14,6 +14,21 @@ namespace mat_290_framework
         {
             InitializeComponent();
 
+            pointCalculations = new List<List<Point2D>>();
+            chooseTable = new long[40,40];
+            deCastlejauTableP1 = new Point2D[40,40];
+            Array.Clear(chooseTable, 0, chooseTable.Length);
+            // Array.Clear(deCastlejauTableP1, -1, deCastlejauTableP1.Length);
+        
+            for(int i=0;i<40;i++)
+            {
+                for(int j=0;j<40;j++)
+                {
+                    deCastlejauTableP1[i, j] = new Point2D(-1, -1);
+                }
+            }
+
+
             pts_ = new List<Point2D>();   
             tVal_ = 0.5F;
             degree_ = 0;
@@ -84,7 +99,9 @@ namespace mat_290_framework
         List<float> knot_; // knot sequence for deboor
         bool EdPtCont_; // end point continuity flag for std knot seq contruction
         Random rnd_; // random number generator
-
+        List<List<Point2D>> pointCalculations;
+        long[,] chooseTable;
+        Point2D[,] deCastlejauTableP1;
         List<Point2D> myCoefPoints;
       //  int proj1Degree;
 
@@ -112,6 +129,16 @@ namespace mat_290_framework
         private void Menu_Clear_Click(object sender, EventArgs e)
         {
             pts_.Clear();
+
+            for (int i = 0; i < 40; i++)
+            {
+                for (int j = 0; j < 40; j++)
+                {
+                    deCastlejauTableP1[i, j] = new Point2D(-1, -1);
+                }
+            }
+
+
             Refresh();
         }
 
@@ -124,7 +151,7 @@ namespace mat_290_framework
         {
             // if the right mouse button is being pressed
             if (pts_.Count != 0 && e.Button == MouseButtons.Right)
-            {
+            {/*
                 if (Project1.Checked)
                 {
                     int index = PickPt(new Point2D(e.X, e.Y));
@@ -142,6 +169,7 @@ namespace mat_290_framework
                     pts_[index].y = temp;
                 }
                 else
+              */
                 {
                     // grab the closest point and snap it to the mouse
                     int index = PickPt(new Point2D(e.X, e.Y));
@@ -159,17 +187,33 @@ namespace mat_290_framework
             // if the left mouse button was clicked
             if (e.Button == MouseButtons.Left)
             {
-                if (Project1.Checked)// || Project5.Checked)
-                { }
-
+                 /*
+                if (Project1.Checked || Project5.Checked)
+                { Refresh(); }
+               
                 else if (Project5.Checked)
                 {
 
                 }
+                */
                 // add a new point to the controlPoints
-                else
+              //  else
                 {
-                    pts_.Add(new Point2D(e.X, e.Y));
+                    if (!Project1.Checked && !Project5.Checked)
+                    { pts_.Add(new Point2D(e.X, e.Y)); }
+
+                    for (int i = 0; i < 40; i++)
+                    {
+                        for (int j = 0; j < 40; j++)
+                        {
+                            if (j < pts_.Count)
+                            { deCastlejauTableP1[0, j] = pts_[j]; }
+                            else
+                            {
+                                deCastlejauTableP1[i, j] = new Point2D(-1, -1);
+                            }
+                        }
+                    }
 
                     if (Menu_DeBoor.Checked)
                     {
@@ -466,10 +510,38 @@ namespace mat_290_framework
 
         private void DrawScreen(System.Drawing.Graphics gfx)
         {
-            // to prevent unecessary drawing
-            if (pts_.Count == 0)
-                return;
 
+            P1DegreeBox.Visible = Project1.Checked;
+            P1DegreeLabel.Visible = Project1.Checked; 
+
+
+            if (Project1.Checked)
+            {
+              
+
+                pts_.Clear();
+                float f = (float)P1DegreeBox.Value;
+
+                for (int i = 0; i < f; i++)
+                {
+
+                    pts_.Add(new Point2D((i / f), 1));
+                }
+
+            }
+
+            else if (Project5.Checked)
+            {
+
+            }
+            // to prevent unecessary drawing
+            else if (pts_.Count == 0)// && !Project1.Checked && !Project5.Checked)
+            {
+                pts_.Clear();
+               // P1DegreeBox.Visible = false;
+                //P1DegreeLabel.Visible = false;
+                return;
+            }
             // pens used for drawing elements of the display
             System.Drawing.Pen polyPen = new Pen(Color.Gray, 1.0f);
             System.Drawing.Pen shellPen = new Pen(Color.LightGray, 0.5f);
@@ -503,26 +575,80 @@ namespace mat_290_framework
             //  to be six sample points for every point placed on the screen
             float steps = pts_.Count * 5;
             float alpha = 1 / steps;
+            /*
+                        List<Point2D> ptsCopy = new List<Point2D>();
+                        for(int i=0;i<pts_.Count;i++)
+                        {
+                            ptsCopy.Add(pts_[i]);
+                        }
 
+            */
             ///////////////////////////////////////////////////////////////////////////////
             // Drawing code for algorithms goes in here                                  //
             ///////////////////////////////////////////////////////////////////////////////
+            /*
+            if (Project1.Checked)
+            {
+                P1DegreeBox.Visible = true;
+                P1DegreeLabel.Visible = true;
+
+                pts_.Clear();
+                float f = (float)P1DegreeBox.Value;
+
+                for(int i=0;i<f;i++)
+                {
+                  
+                    pts_.Add(new Point2D( (i / f), 1));
+                }
+
+
+                
+                List<Point2D> p1Points = new List<Point2D>();
+
+                for (int i = 0; i < pts_.Count; i++)
+                {
+                    p1Points.Add(new Point2D(rangeTransform(0, ClientSize.Width, 0, 1, pts_[i].x), rangeTransform(0, ClientSize.Height, -3, 3, pts_[i].y)));
+
+                }
+
+                pts_ = p1Points;
+                
+            }
+            
+            else
+            
+            {
+                P1DegreeBox.Visible = false;
+                P1DegreeLabel.Visible = false;
+
+            }
+            */
 
             // DeCastlejau algorithm
             if (Menu_DeCast.Checked)
             {
-                if(Project1.Checked)
-                {
-
-                }
+               
 
                 Point2D current_left;
                 Point2D current_right = new Point2D(DeCastlejau(0));
 
+                if (Project1.Checked)
+                {
+                    current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                    current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                }
+
                 for (float t = alpha; t < 1; t += alpha)
                 {
                     current_left = current_right;
+
                     current_right = DeCastlejau(t);
+                    if (Project1.Checked)
+                    {
+                        current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                        current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                    }
+                    
                     gfx.DrawLine(splinePen, current_left.P(), current_right.P());
                 }
 
@@ -534,11 +660,26 @@ namespace mat_290_framework
             {
                 Point2D current_left;
                 Point2D current_right = new Point2D(Bernstein(0));
-                
+
+                if (Project1.Checked)
+                {
+                    current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                    current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                }
+
                 for (float t = alpha; t < 1; t += alpha)
                 {
                     current_left = current_right;
                     current_right = Bernstein(t);
+
+
+                    if (Project1.Checked)
+                    {
+                        current_right.x = rangeTransform(0, 1, 10, ClientSize.Width, current_right.x);
+                        current_right.y = rangeTransform(-3, 3, 10, ClientSize.Height, current_right.y);
+                    }
+
+
                     gfx.DrawLine(splinePen, current_left.P(), current_right.P());
                 }
 
@@ -599,7 +740,7 @@ namespace mat_290_framework
 
                 gfx.DrawLine(splinePen, current_right.P(), DeBoorAlgthm(lastT).P());
             }
-
+            
             ///////////////////////////////////////////////////////////////////////////////
             // Drawing code end                                                          //
             ///////////////////////////////////////////////////////////////////////////////
@@ -668,6 +809,16 @@ namespace mat_290_framework
 
     }
         
+    private Point2D Bernstein(float t,List<Point2D> p)
+        {
+            return BBform(p, t, p.Count - 1, 0);
+        }
+
+        private Point2D DeCastlejau(float t, List<Point2D>p)
+        {
+            return NLIMethod(p, t, p.Count - 1, 0);
+        }
+
     private Point2D Bernstein(float t)
         {
             // return new Point2D(t, BBform(pts_,t,degree_,0));
@@ -724,6 +875,11 @@ namespace mat_290_framework
             Project6.Checked = false;
             Project7.Checked = false;
             Project8.Checked = false;
+
+            //800 high, 500 long
+            //Top, left, right, bot:  50, 100,1100,850
+
+
         }
 
         private void Project2_Click(object sender, EventArgs e)
@@ -812,33 +968,64 @@ namespace mat_290_framework
 
         private Point2D NLIMethod(List<Point2D> coef, float tValue, int upper, int lower)
         {
-            if(upper ==0)
-            {
-                if (coef.Count > 1)
-                { return coef[lower]; }
-                else { return coef[0]; }
-            }
-            else
-            {
-                return ((1 - tValue) * NLIMethod(coef, tValue, upper - 1, lower) + tValue * NLIMethod(coef, tValue, upper - 1, Math.Min(coef.Count, lower + 1)));
-            }
-        }
 
+     
+
+        //    if (deCastlejauTableP1[upper, lower].x == deCastlejauTableP1[upper, lower].y && deCastlejauTableP1[upper, lower].x == -1)
+            {
+
+                if (upper == 0)
+                {
+                    if (coef.Count > 1)
+                    {
+
+                       // deCastlejauTableP1[upper, lower] = coef[lower];
+                        return coef[lower];
+                    }
+                    else
+                    {
+                      //  deCastlejauTableP1[upper, lower] = coef[0];
+                        return coef[0];
+                    }
+                }
+                else
+                {
+                   // deCastlejauTableP1[upper, lower] = (1 - tValue) * NLIMethod(coef, tValue, upper - 1, lower) + tValue * NLIMethod(coef, tValue, upper - 1, lower + 1);//Math.Min(coef.Count, lower + 1));
+                   // return deCastlejauTableP1[upper, lower];
+
+                return (1 - tValue) * NLIMethod(coef, tValue, upper - 1, lower) + tValue * NLIMethod(coef, tValue, upper - 1, lower + 1);
+                }
+            }
+
+          //  else { return deCastlejauTableP1[upper, lower]; }
+        }
         public long nCr(int upper, int lower)
         {
-            if(lower==0 || upper==lower)
-            { return 1; }
-           else if(upper-1==lower || lower ==1)
-            {
-                return upper;
-            }
-            
+            if (chooseTable[upper, lower] != 0)
+            { return chooseTable[upper, lower]; }
+
             else
             {
-                return nCr(upper - 1, lower - 1) + nCr(upper - 1, lower);
+                if (lower == 0 || upper == lower)
+                {
+                    chooseTable[upper, lower] = 1;
+                    return 1;
+                }
+                else if (upper - 1 == lower || lower == 1)
+                {
+                    chooseTable[upper, upper - 1] = upper;
+                    chooseTable[upper, 1] = upper;
+                    return upper;
+                }
+
+                else
+                {
+                    chooseTable[upper, lower] = nCr(upper - 1, lower - 1) + nCr(upper - 1, lower);
+                    return chooseTable[upper, lower];
+                    //return nCr(upper - 1, lower - 1) + nCr(upper - 1, lower);
+                }
             }
         }
-
         private Point2D BBform(List<Point2D> coef, float tValue, int upper, int lower)
         {Point2D o = new Point2D(0,0);
             for(int i=0;i<coef.Count;i++)
@@ -850,6 +1037,12 @@ namespace mat_290_framework
             if(coef.Count==1)
             { return coef[0]; }
             return o;
+        }
+
+
+        private float rangeTransform(float inputRangeMin, float inputRangeMax, float outputRangeMin, float outputRangeMax, float inputX) 
+        {
+            return  (((outputRangeMax - outputRangeMin) * (inputX - inputRangeMin)) / (inputRangeMax - inputRangeMin)) + outputRangeMin;
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -880,6 +1073,21 @@ namespace mat_290_framework
         private void MAT290_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void MAT290_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void P1DegreeBox_ValueChanged(object sender, EventArgs e)
+        {
+            Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            pts_.Clear();
         }
     }
 }
