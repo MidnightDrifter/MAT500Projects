@@ -151,25 +151,25 @@ namespace mat_290_framework
         {
             // if the right mouse button is being pressed
             if (pts_.Count != 0 && e.Button == MouseButtons.Right)
-            {/*
+            {
                 if (Project1.Checked)
                 {
                     int index = PickPt(new Point2D(e.X, e.Y));
                     float temp = e.Y;
                     
-                    if(temp <-3)
+                    if(temp <50)
                     {
-                        temp = -3;
+                        temp = 50;
                     }
-                    if(temp>3)
+                    if(temp>500)
                     {
-                        temp = 3;
+                        temp = 500;
                     }
 
                     pts_[index].y = temp;
                 }
                 else
-              */
+              
                 {
                     // grab the closest point and snap it to the mouse
                     int index = PickPt(new Point2D(e.X, e.Y));
@@ -177,8 +177,9 @@ namespace mat_290_framework
                     pts_[index].x = e.X;
                     pts_[index].y = e.Y;
 
-                    Refresh();
+                
                 }
+                Refresh();
             }
         }
 
@@ -515,29 +516,39 @@ namespace mat_290_framework
             P1DegreeLabel.Visible = Project1.Checked; 
 
 
+
             if (Project1.Checked)
             {
-              
+                BackgroundImage = (mat_290_framework.Properties.Resources.Project1GraphBackground);
+                //Starting point is ~(0,195)
+                //Constrain from ~50 - 495 y, 
+                //720 px wide
 
-                pts_.Clear();
                 float f = (float)P1DegreeBox.Value;
 
-                for (int i = 0; i < f; i++)
+                if (pts_.Count != f+1)
                 {
+                    pts_.Clear();
 
-                    pts_.Add(new Point2D((i / f), 1));
+
+                    for (int i = 0; i <= f; i++)
+                    {
+
+                        pts_.Add(new Point2D((i / f) * 720, 195));
+                    }
                 }
-
             }
 
             else if (Project5.Checked)
             {
 
             }
+
+            else { BackgroundImage = null; }
             // to prevent unecessary drawing
-            else if (pts_.Count == 0)// && !Project1.Checked && !Project5.Checked)
+            if (pts_.Count == 0)// && !Project1.Checked && !Project5.Checked)
             {
-                pts_.Clear();
+               // pts_.Clear();
                // P1DegreeBox.Visible = false;
                 //P1DegreeLabel.Visible = false;
                 return;
@@ -634,8 +645,8 @@ namespace mat_290_framework
 
                 if (Project1.Checked)
                 {
-                    current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
-                    current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                  //  current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                  //  current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
                 }
 
                 for (float t = alpha; t < 1; t += alpha)
@@ -645,8 +656,8 @@ namespace mat_290_framework
                     current_right = DeCastlejau(t);
                     if (Project1.Checked)
                     {
-                        current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
-                        current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                     //   current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
+                     //   current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
                     }
                     
                     gfx.DrawLine(splinePen, current_left.P(), current_right.P());
@@ -663,8 +674,8 @@ namespace mat_290_framework
 
                 if (Project1.Checked)
                 {
-                    current_right.x = rangeTransform(0, 1, 0, ClientSize.Width, current_right.x);
-                    current_right.y = rangeTransform(-3, 3, 0, ClientSize.Height, current_right.y);
+                     current_right.x = rangeTransform(0, ClientSize.Width, 0, 1, current_right.x);
+                       current_right.y = rangeTransform( 0, ClientSize.Height,-3, 3, current_right.y);
                 }
 
                 for (float t = alpha; t < 1; t += alpha)
@@ -1077,12 +1088,18 @@ namespace mat_290_framework
 
         private void P1DegreeBox_ValueChanged(object sender, EventArgs e)
         {
+            // P1DegreeBox.Update();
+
+            //P1DegreeBox.ResetText();
+            P1DegreeBox.Refresh();
             Refresh();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            pts_.Clear();
+            Refresh();
         }
     }
 }
